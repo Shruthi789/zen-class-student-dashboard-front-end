@@ -11,3 +11,145 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/*NavBar styles */
+.navBar{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap:wrap;
+  width:100%;
+}
+.heading {
+  color: green;
+  text-align:center;
+}
+
+/*Movie styles */
+.movies-arrangement{
+  display:flex;
+  gap: 20px;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}
+.movie-spec{
+  display:flex;
+  justify-content: space-between;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: min-content;
+}
+.movie-poster{
+  width:400px;
+  height:400px;
+  object-fit: cover;
+}
+.movie-data{
+  background-color:palevioletred;
+}
+.movie-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title{
+  font-weight: bold;
+}
+/*Button Style*/
+.like-button-style{
+  display:flex;
+  gap:10px;
+}
+.button-style{
+  color: white;
+  cursor: pointer;
+}
+.button-style:hover{
+ background-color: gray;
+ color: black;
+} 
+.card-actions{
+  display: flex;
+  justify-content: space-around;
+}
+/*Form*/
+.form-style{
+  display: flex;
+  justify-content:space-around;
+  flex-wrap: wrap;
+  gap:7px;
+  flex-direction: column;
+  width: 400px;
+}
+.label-style,.filter-label-style{
+  font-weight: bold;
+}
+.label-style::first-letter{
+  text-transform: uppercase;
+}
+.label-style::after{
+ content: '*';
+ color:red;
+}
+.form-component{
+  display: flex;
+  gap:10px;
+  padding: 4px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.movies-login{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://wallpapercave.com/wp/BMrmUGk.jpg');
+  flex-wrap:wrap;
+  margin:10px;
+}
+
+.movies-login-form{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+  margin:10px;
+}
+
+.adjust-form{
+  display: flex;
+  justify-content: center;
+  gap:7px;
+}
+
+.heading-style{
+  text-align: center;
+  color:lavender;
+}
+
+.movies{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-input{
+  display: flex;
+  justify-content: center;
+}
+
+.login-image{
+  width:300px;
+  height:300px;
+}
+
+@media screen and (max-width: 425px) {
+  .login-image{
+    width: 200px;
+    height: 129px;
+  }
+}
+
+.message-style{
+  color:lavender;
+  text-align: center;
+}
