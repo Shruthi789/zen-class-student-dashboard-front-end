@@ -57,7 +57,7 @@ function UpdateStudent({info}){
                                 };
   return (<div>
     <FormComponent initialValues={initialValues} submitHandler={submitHandler}/>
-    <p className="message-style">{message}</p>
+    {message!=='Error!!'?<p className="form-message-style">{message}</p>:<p className="error-message-style">{message}</p>}
     <div>
     <BackButton/>
     </div>  
