@@ -23,14 +23,14 @@ code {
   text-align:center;
 }
 
-/*Movie styles */
-.movies-arrangement{
+/*Dashboard styles */
+.dashboard-arrangement{
   display:flex;
   gap: 20px;
   flex-wrap:wrap;
   justify-content: space-around;
 }
-.movie-spec{
+.dashboard-spec{
   display:flex;
   justify-content: space-between;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -96,7 +96,7 @@ code {
   justify-content: space-evenly;
 }
 
-.movies-login{
+.dashboard-login{
   display:flex;
   justify-content: center;
   align-items: center;
@@ -105,7 +105,7 @@ code {
   margin:10px;
 }
 
-.movies-login-form{
+.dashboard-login-form{
   display:flex;
   flex-direction:column;
   justify-content: center;
@@ -125,7 +125,7 @@ code {
   color:lavender;
 }
 
-.movies{
+.dashboard{
   display:flex;
   align-items: center;
   justify-content: center;

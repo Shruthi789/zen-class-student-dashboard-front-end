@@ -2,210 +2,106 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { FormHelperText } from '@mui/material';
-import Rating from '@mui/material/Rating';
-import MenuItem from '@mui/material/MenuItem';
-import { useEffect, useState } from 'react';
-import {API} from './APIInfo.js';
 import {BackButton} from './BackButton.js';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-/*Add and Edit Form */
 
-function FormComponent({initialValues,submitHandler,action}){
+function FormComponent({initialValues,submitHandler}){
     
-    const formValidationSchema=yup.object({
-        name:yup.string().required('Enter a name!!'),
-        poster:yup.string().min(4).required('Enter a poster link!'),
-        summary:yup.string().min(20,'Limit is 20 characters').required('Enter a summary!'),
-        rating:yup.number().min(2,'Enter a higher rating').max(10,'Enter a lower rating').required('Enter a rating!'),
-        cast:yup.string().min(30,'Enter a minimum of 30 characters').required('Enter the cast!'),
-        language:yup.string().min(4,'Enter a minimum of 4 characters').required('Enter the language!'),
-        trailer:yup.string().min(4,'Enter a minimum of 4 characters').required('Enter a trailer link!')
-      });
-      const {values,errors,touched,handleSubmit,handleBlur,handleChange}=useFormik({
-        initialValues: initialValues,
-        validationSchema:formValidationSchema,
-        onSubmit:submitHandler
-      })
-    return (<div>
-        <h2 className="heading-style">{action} USER</h2>
-        <div className='adjust-form'>
-        <form onSubmit={handleSubmit} className="form-style">
-        <div className="form-style">
-        <label className="label-style">Name: </label>
-        <TextField
-      id="name"
-      name="name"
-      label="Name"
-      value={values.name}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.name && touched.name}
-      helperText={touched.name?errors.name:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-    <div className="form-style">
-        <label className="label-style">Poster: </label>
-        <TextField
-      id="poster"
-      name="poster"
-      label="Poster"
-      value={values.poster}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.poster && touched.poster}
-      helperText={touched.poster?errors.poster:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-    <div className="form-style">
-      <label className="label-style">Summary: </label>
-        <TextField
-        id="summary"
-      name="summary"
-      label="Summary"
-      value={values.summary}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.summary && touched.summary}
-      helperText={touched.summary?errors.summary:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-    <div className="form-style">
-    <label className="label-style">Rating: </label>
-        <TextField
-        id="rating"
-       name="rating"
-      label="Rating"
-      value={values.rating}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.rating && touched.rating}
-      helperText={touched.rating?errors.rating:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-    <div className="form-style">
-     <label className="label-style">Cast: </label>
-        <TextField
-        id="cast"
-      name="cast"
-      label="Cast"
-      value={values.cast}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.cast && touched.cast}
-      helperText={touched.cast?errors.cast:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-    <div className="form-style">
-     <label className="label-style"> Language: </label>
-        <TextField
-        id="language"
-      name="language"
-      label="language"
-      value={values.language}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.language && touched.language}
-      helperText={touched.language?errors.language:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-    <div className="form-style">
-     <label className="label-style"> Trailer: </label>
-        <TextField
-        id="trailer"
-      name="trailer"
-      label="Trailer"
-      value={values.trailer}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      error={errors.trailer && touched.trailer}
-      helperText={touched.trailer?errors.trailer:""}
-      sx={{width:{xs:'90vw',md:331}}}
-    />
-    </div>
-       <Button variant="contained" type="Submit">+{action} Movie</Button>
+  const formValidationSchema=yup.object({
+      name:yup.string().required('Enter a name!!'),
+      completion:yup.number().min(4,'Enter a higher value').required('Enter a completion percentage!'),
+      attendance:yup.number().min(10,'Enter a higher value').required('Enter an attendance percentage!'),
+      codekata:yup.number().min(50,'Enter a higher value').required('Enter the number of codekata sums!'),
+      webkata:yup.number().min(50,'Enter a higher value').required('Enter the number of webkata problems!'),
+      pendingTasks:yup.number().min(0).required('Enter the no of pending tasks!'),
+      submittedTasks:yup.string().min(5,'Enter a higher value').required('Enter the number of submitted tasks!')
+    });
+    const {values,errors,touched,handleSubmit,handleBlur,handleChange}=useFormik({
+      initialValues: initialValues,
+      validationSchema:formValidationSchema,
+      onSubmit:submitHandler
+    })
+  return (<div>
+      <h2 className="heading-style">EDIT STUDENT INFORMATION</h2>
+      <div className='adjust-form'>
+      <form onSubmit={handleSubmit} className="form-style">
+      <div className="form-style">
+      <label className="label-style">Name: </label>
+      <TextField
+    id="name"
+    name="name"
+    label="Name"
+    value={values.name}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.name && touched.name}
+    helperText={touched.name?errors.name:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  <div className="form-style">
+      <label className="label-style">Completion: </label>
+      <TextField
+    id="completion"
+    name="completion"
+    label="Completion"
+    value={values.completion}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.completion && touched.completion}
+    helperText={touched.completion?errors.completion:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  <div className="form-style">
+    <label className="label-style">Attendance: </label>
+      <TextField
+      id="attendance"
+    name="attendance"
+    label="Attendance"
+    value={values.attendance}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.attendance && touched.attendance}
+    helperText={touched.attendance?errors.attendance:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  <div className="form-style">
+  <label className="label-style">Pending Tasks: </label>
+      <TextField
+      id="pendingTasks"
+     name="pendingTasks"
+    label="pendingTasks"
+    value={values.pendingTasks}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.pendingTasks && touched.pendingTasks}
+    helperText={touched.pendingTasks?errors.pendingTasks:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  <div className="form-style">
+   <label className="label-style">Submitted Tasks: </label>
+      <TextField
+      id="submittedTasks"
+    name="submittedTasks"
+    label="submittedTasks"
+    value={values.submittedTasks}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.submittedTasks && touched.submittedTasks}
+    helperText={touched.submittedTasks?errors.submittedTasks:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  
+     <Button variant="contained" type="Submit">+Edit Student</Button>
 
 </form>
 </div> 
 </div>);
 }
-
-/*Form for Language and Rating Filter */
-function FilterForm({submitHandler}){
-  const [languages,setLanguages]=useState([]);
-  const getLanguages=()=>{
-    fetch(`${API}/movies/languages`,{method:'GET',headers:{
-      'x-auth-token':localStorage.getItem('token'),
-     'role':localStorage.getItem('type')
-   }})
-    .then((res)=>res.json())
-    .then((data)=>setLanguages(data))
-    .catch((error)=>console.log(error));
-  };
-  useEffect(getLanguages,[]);
-  const formValidation=({rating})=>{
-    let errors={};
-    if(rating>0 && rating<2){
-     errors.rating="Enter a higher rating";
-    }
-    return errors;
-  }
-  const {values,errors,touched,handleSubmit,handleBlur,handleChange,resetForm}=useFormik({
-    initialValues:{
-      rating:0,
-      language:''
-    },
-    validate:formValidation,
-    onSubmit:submitHandler
-  })
-
-  return(
-  <div>
-    <h3>Filter by language or rating or both:</h3>
-  <form className="form-style">
-  <div className="form-style">
-  <label className="filter-label-style">Language: </label>
-  <TextField
-    select
-    id="language"
-    name="language"
-    label="Language"
-    value={values.language}
-    onChange={(event)=>{handleChange(event);handleSubmit(event);}}
-    onBlur={handleBlur}
-   sx={{width:{xs:'90vw',md:331}}}
-  >
-    {languages.map((lang,index)=><MenuItem key={index} value={lang}>{lang}</MenuItem>)}
-  </TextField>
-</div>
-<div className="form-style">
-  <label className="filter-label-style">Rating: </label>
-<Rating id="rating"
-name="rating"
-value={values.rating}
-max={10} 
-onChange={(event,value)=>{values.rating=value; handleSubmit(event);}}
-onBlur={handleBlur}
-precision={0.5}
-sx={{width:{xs:'90vw',md:331}}}
- />
-<FormHelperText>{(touched.rating && errors.rating!==undefined)?errors.rating:""}</FormHelperText>
-</div>
- <Button variant="contained" onClick={(event)=>{resetForm({
-   values: { rating:0, language: '' },
- }); handleSubmit(event)}}>Reset</Button>
-
-</form>
-</div> )
-
-}
-
 /*Login Form */
 function LoginForm({submitHandler}){
     
@@ -273,7 +169,6 @@ function SignUpForm({submitHandler}){
       initialValues: {
         username:'',
         password:'',
-        usertype:'',
         email:''
       },
       validationSchema:formValidationSchema,
@@ -323,20 +218,6 @@ function SignUpForm({submitHandler}){
     helperText={touched.password?errors.password:""}
     sx={{backgroundColor:'lavender',width:{xs:'90vw',md:331}}}
   />
-  </div>
- < div className="form-input">
-      <TextField
-    select
-    id="usertype"
-    name="usertype"
-    label="User Type"
-    value={values.usertype}
-    onChange={handleChange}
-    onBlur={handleBlur}
-   sx={{backgroundColor:'lavender',width:{xs:'90vw',md:331}}}
-  >
-    {["Admin","Regular"].map((type,index)=><MenuItem key={index} value={type}>{type}</MenuItem>)}
-  </TextField>
   </div>
   
   <div className='form-input'>
@@ -465,4 +346,4 @@ function ChangePassword({submitHandler,message,setShowPChange,setOMessage}){
 </div>);
 }
 
-export {FormComponent,FilterForm,LoginForm,SignUpForm,SendOTPForm,ChangePassword};
+export {FormComponent,LoginForm,SignUpForm,SendOTPForm,ChangePassword};
