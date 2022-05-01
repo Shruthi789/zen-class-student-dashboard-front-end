@@ -7,6 +7,7 @@ function SignUp(){
     const [message,setMessage]=useState("");
     const history=useHistory();
     const submitHandler=(values)=>{
+        console.log(values);
         fetch(`${API}/users/signup`,{
             method:'POST',
             headers:{

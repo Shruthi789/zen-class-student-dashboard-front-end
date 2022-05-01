@@ -111,7 +111,7 @@ function Home() {
 
   const [info, setInfo]=React.useState(null);
   const getInfo=()=>{
-     const name=localStorage.getItem('name')
+     const name=localStorage.getItem('name');
       fetch(`${API}/dashboard/getstudentInfo/${name}`,{
         method:'GET',
            headers:{
@@ -119,7 +119,7 @@ function Home() {
     }
    })
       .then((res)=>res.json())
-      .then((data)=>setInfo(data))
+      .then((data)=>{console.log(data);setInfo(data)})
       .catch((error)=>console.log(error));
    };
   React.useEffect(getInfo,[]);

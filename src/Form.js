@@ -68,6 +68,34 @@ function FormComponent({initialValues,submitHandler}){
   />
   </div>
   <div className="form-style">
+    <label className="label-style">Codekata: </label>
+      <TextField
+      id="codekata"
+    name="codekata"
+    label="codekata"
+    value={values.codekata}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.codekata && touched.codekata}
+    helperText={touched.codekata?errors.codekata:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  <div className="form-style">
+    <label className="label-style">Webkata: </label>
+      <TextField
+      id="webkata"
+    name="webkata"
+    label="Webkata"
+    value={values.webkata}
+    onChange={handleChange}
+    onBlur={handleBlur}
+    error={errors.webkata && touched.webkata}
+    helperText={touched.webkata?errors.webkata:""}
+    sx={{width:{xs:'90vw',md:331}}}
+  />
+  </div>
+  <div className="form-style">
   <label className="label-style">Pending Tasks: </label>
       <TextField
       id="pendingTasks"
