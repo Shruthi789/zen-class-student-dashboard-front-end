@@ -128,7 +128,7 @@ export default function PrimarySearchAppBar() {
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
         >
-           <Avatar alt="Student" src="http://superawesomevectors.com/wp-content/uploads/2016/02/businessman-with-suit-flat-vector-icon-800x566.jpg" />
+           <Avatar alt="Student" src="https://th.bing.com/th/id/R.7f59daf5cec341da0156e18d99dcfbc2?rik=JIyj4xWUmd%2f4qQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_458461.png&ehk=f4BplXTCGbevaKF6cj7h0F%2b3AmvNIZ1uh1qSHHffCvo%3d&risl=&pid=ImgRaw&r=0" />
         </IconButton>
         <p>{localStorage.getItem('name')}</p>
       </MenuItem>
@@ -154,7 +154,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
             >
-              <Avatar alt="Student" src="http://superawesomevectors.com/wp-content/uploads/2016/02/businessman-with-suit-flat-vector-icon-800x566.jpg" />
+              <Avatar alt="Student" src="https://th.bing.com/th/id/R.7f59daf5cec341da0156e18d99dcfbc2?rik=JIyj4xWUmd%2f4qQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_458461.png&ehk=f4BplXTCGbevaKF6cj7h0F%2b3AmvNIZ1uh1qSHHffCvo%3d&risl=&pid=ImgRaw&r=0" />
             </IconButton>
             </div>
           </Box>
