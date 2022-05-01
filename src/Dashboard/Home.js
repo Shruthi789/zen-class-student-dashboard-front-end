@@ -17,7 +17,6 @@ import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import GroupIcon from '@mui/icons-material/Group';
 import PrimarySearchAppBar from './NavBar';
 import { Route,Switch,useRouteMatch } from "react-router-dom";
-import { useState,createContext,useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import {API} from '../APIInfo.js'
@@ -111,7 +110,7 @@ function Home() {
     setOpen(false);
   };
 
-  const [info, setInfo]=useState(null);
+  const [info, setInfo]=React.useState(null);
   const getInfo=()=>{
      const name=localStorage.getItem('name')
       fetch(`${API}/dashboard/getstudentInfo/${name}`,{
@@ -124,7 +123,7 @@ function Home() {
       .then((data)=>setInfo(data))
       .catch((error)=>console.log(error));
    };
-  useEffect(getInfo,[]);
+  React.useEffect(getInfo,[]);
   const {path,url} = useRouteMatch();
   const obj={info,getInfo,setInfo,url};
   const paperStyle={borderRadius:"0px",
