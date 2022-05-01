@@ -14,7 +14,7 @@ function FormComponent({initialValues,submitHandler}){
       codekata:yup.number().min(50,'Enter a higher value').required('Enter the number of codekata sums!'),
       webkata:yup.number().min(50,'Enter a higher value').required('Enter the number of webkata problems!'),
       pendingTasks:yup.number().min(0).required('Enter the no of pending tasks!'),
-      submittedTasks:yup.string().min(5,'Enter a higher value').required('Enter the number of submitted tasks!')
+      submittedTasks:yup.number().min(5,'Enter a higher value').required('Enter the number of submitted tasks!')
     });
     const {values,errors,touched,handleSubmit,handleBlur,handleChange}=useFormik({
       initialValues: initialValues,
