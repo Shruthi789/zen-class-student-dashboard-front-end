@@ -1,7 +1,5 @@
-import {useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import {studentContext} from './Home.js';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 
@@ -20,8 +18,20 @@ function Student({data}) {
   }
 
 function StudentInfo(){
-    const {getInfo,info}=useContext(studentContext);
-    getInfo();
+  const [info, setInfo]=useState(null);
+  const getInfo=()=>{
+     const name=localStorage.getItem('name');
+      fetch(`${API}/dashboard/getstudentInfo/${name}`,{
+        method:'GET',
+           headers:{
+       'x-auth-token':localStorage.getItem('token'),
+    }
+   })
+      .then((res)=>res.json())
+      .then((data)=>{console.log(data);setInfo(data)})
+      .catch((error)=>console.log(error));
+   };
+   useEffect(getInfo,[]);
     const infoData=Object.entries(info);
     return (
     <div>
