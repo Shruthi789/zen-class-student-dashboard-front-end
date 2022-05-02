@@ -13,7 +13,7 @@ function Student({data}) {
        <Typography variant="h5" component="div">
           {key}
         </Typography>
-         {key==="completion"? <LinearProgress variant="determinate" value={value} />:value}
+         {key==="completion"? <LinearProgress variant="determinate" value={value} />?key==='tasks':`${value.pendingTasks} ${value.submittedTasks}`:value}
         </CardContent>
       </Card>
     );
