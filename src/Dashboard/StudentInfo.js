@@ -7,6 +7,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 function Student({data}) {
     const [key,value]=data;
+    console.log(key,value);
     return (
       <Card sx={{ minWidth:340}}>
        <CardContent>
