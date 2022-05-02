@@ -139,7 +139,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
         <Toolbar sx={{padding:'0px'}}>
         <div className="app-bar">
-        <Button variant="text" color="warning" onClick={()=>{history.push(`${url}`)}}>STUDENT INFO</Button>
+        <Button variant="text" color="warning" onClick={()=>{history.push(`${url}/display`)}}>STUDENT INFO</Button>
         <Button variant="text" color="warning" onClick={()=>{history.push(`${url}/edit/${info._id}`)}}>EDIT STUDENT INFO</Button>
         </div>
           <Box sx={{ flexGrow: 1 }} />

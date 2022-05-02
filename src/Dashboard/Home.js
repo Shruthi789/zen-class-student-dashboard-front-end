@@ -181,6 +181,9 @@ function Home() {
        <DrawerHeader />
     <Switch>
     <Route exact path={path}>
+        <h1>Welcome to {localStorage.getItem('name')}'s dashboard</h1>
+      </Route>
+      <Route path={`${path}/display`}>
         <StudentInfo/>
       </Route>
         <Route path={`${path}/edit/:id`}>
