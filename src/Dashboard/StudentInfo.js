@@ -20,7 +20,8 @@ function Student({data}) {
   }
 
 function StudentInfo(){
-    const {info}=useContext(studentContext);
+    const {getInfo,info}=useContext(studentContext);
+    getInfo();
     const infoData=Object.entries(info);
     return (
     <div>
